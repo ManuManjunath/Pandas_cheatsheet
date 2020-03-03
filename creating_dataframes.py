@@ -26,3 +26,6 @@ index : dict like {index -> {column -> value}}
 columns : dict like {column -> {index -> value}}
 values : just the values array
 """
+# Create df from another df - copy certain rows and columns
+df2 = df.iloc[0:4, :].copy()
+# ^^ Copies all columns for 5 rows starting 1st row
