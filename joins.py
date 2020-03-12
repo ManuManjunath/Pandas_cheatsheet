@@ -1,4 +1,3 @@
-# Joins
 # Inner Join
 pd.merge(df1, df2, on='col_1')
 # In case column names are different
@@ -16,5 +15,5 @@ pd.merge(df1, df2, on='col_1', how='left')
 pd.merge(df1, df2, on='col_1', how='right')
 # To validate 1-m / m-1 / 1-1 / m-m (Throws an exception if validation fails)
 pd.merge(df1, df2, on='col_1', validate='1:m')
-# If DFs have the same index, you can join multiple DFs using - 
+# If DFs have the same index, you can join multiple DFs using -
 df1.join([df2, df3])
