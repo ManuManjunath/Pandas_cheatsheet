@@ -32,3 +32,12 @@ df.to_hdf('data.h5', key='df', mode='w')
 pd.read_hdf('data.h5', 'df')
 # To CSV
 df.to_csv(index=False)
+
+# To check the memory occupied by your Data Frame
+def mem(df):
+    print("{0:2f} MiB".format(
+        df.memory_usage().sum() / (1024 * 1024)
+    ))
+
+mem(your_df)
+
