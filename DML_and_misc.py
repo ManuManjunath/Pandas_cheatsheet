@@ -40,3 +40,39 @@ def mmry(df):
     ))
 
 mmry(your_df)
+
+# Long vs Wide data formats
+"""
+long = 
+Year    Dept    Sales
+----    ----    -----
+2001    Books   1200
+2001    Music   1500
+2001    Clothes 2000
+2002    Books   900
+2002    Music   1100
+2002    Clothes 1900
+2003    Books   1300
+2003    Music   1600
+2003    Clothes 2200
+
+VS
+wide = 
+Dept        2001    2002    2003
+----        ----    ----    ----
+Books       1200    900     1300
+Music       1500    1100    1600
+Clothes     2000    1900    2200  
+"""
+
+# Long to Wide
+wide = long.pivot(index='Dept', columns='Year', values='Sales')
+
+# Wide to Long
+# First reset index
+wide = wide.reset_index()
+wide.columns.name = None
+# Now convery to Long
+long2 = wide.melt(id_vars='Dept')
+# Use (value_vars=[list of specific categories only]) for filter
+
