@@ -7,3 +7,13 @@ df = read_csv("this_file.csv", index='this_column')
 # If column_index = ":" --> Get all columns
 # Gets rows 10 to 20 and columns # 1 and 4
 df.iloc[10:10, [0,3]]
+
+
+# To specify an index on a dataframe
+df.set_index("thisColumn")
+# ^^ This doesn't modify the original dataframe.
+# To specify the index on the original dataframe in place - 
+df.set_index("thisColumn", inplace=True)
+
+# To remove index and reset -
+df.reset_index(inplace=True)
