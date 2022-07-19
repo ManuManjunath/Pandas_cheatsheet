@@ -21,6 +21,9 @@ df.drop(['col_1', 'col_2'], axis=1)
 # To rename columns
 df.rename(columns={'col_1': 'column_1', 'col_2': 'column_2'})
 
+# Remove duplicates
+df.drop_duplicates(inplace=True)
+
 # More
 # serialize object to file
 df.to_pickle(file.pkl)
@@ -72,7 +75,19 @@ wide = long.pivot(index='Dept', columns='Year', values='Sales')
 # First reset index
 wide = wide.reset_index()
 wide.columns.name = None
-# Now convery to Long
+# Now convert to Long
 long2 = wide.melt(id_vars='Dept')
 # Use (value_vars=[list of specific categories only]) for filter
 
+# To control the max number of rows and columns displayed-
+pd.set_option('display.max_columns', 20)
+pd.set_option('display.max_rows', 2000)
+
+# To rename columns - 
+df.columns
+# Index(['col_1', 'col_2', 'col_3'], dtype='object')
+df.columns = ['column_1', 'column_2', 'column_3']
+df.columns
+# Index(['column_1', 'column_2', 'column_3'], dtype='object')
+# To rename a specific column name
+df.rename(columns={'column_1': 'col_1', 'column_2': 'col_2'})
